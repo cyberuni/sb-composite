@@ -1,0 +1,10 @@
+diff --git a/dist/node/index.d.ts b/dist/node/index.d.ts
+index 849e55f8f2adddd2e9bfc729e610453f06dda224..e7a2cfc2a02b51cdf125d4b6ec8bb79f7c5c449c 100644
+--- a/dist/node/index.d.ts
++++ b/dist/node/index.d.ts
+@@ -56,3 +56,5 @@ type StorybookConfig = Omit<StorybookConfig$1, keyof StorybookConfigVite | keyof
+ declare function defineMain(config: StorybookConfig): StorybookConfig;
+ 
+ export { defineMain };
++
++export type { StorybookConfig };

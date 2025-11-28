@@ -1,0 +1,97 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 9d3fc68d70cd56415395a5b73e34c5b9354402ef..05b05dc2417ae61c59954f9bb7b48632a1373c0a 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,16 +1,16 @@
+-import * as storybook_internal_csf from 'storybook/internal/csf';
+-import { Selector, SelectorList, RunOptions, Spec } from 'axe-core';
++import { RunOptions, Selector, SelectorList, Spec } from 'axe-core'
++import * as storybook_internal_csf from 'storybook/internal/csf'
+ 
+-type SelectorWithoutNode = Omit<Selector, 'Node'> | Omit<SelectorList, 'NodeList'>;
++type SelectorWithoutNode = Omit<Selector, 'Node'> | Omit<SelectorList, 'NodeList'>
+ type ContextObjectWithoutNode = {
+-    include: SelectorWithoutNode;
+-    exclude?: SelectorWithoutNode;
++    include: SelectorWithoutNode
++    exclude?: SelectorWithoutNode
+ } | {
+-    exclude: SelectorWithoutNode;
+-    include?: SelectorWithoutNode;
+-};
+-type ContextSpecWithoutNode = SelectorWithoutNode | ContextObjectWithoutNode;
+-type A11yTest = 'off' | 'todo' | 'error';
++    exclude: SelectorWithoutNode
++    include?: SelectorWithoutNode
++}
++type ContextSpecWithoutNode = SelectorWithoutNode | ContextObjectWithoutNode
++type A11yTest = 'off' | 'todo' | 'error'
+ interface A11yParameters$1 {
+     /**
+      * Context parameter for axe-core's run function, except without support for passing Nodes and
+@@ -18,23 +18,23 @@ interface A11yParameters$1 {
+      *
+      * @see https://github.com/dequelabs/axe-core/blob/develop/doc/context.md
+      */
+-    context?: ContextSpecWithoutNode;
++    context?: ContextSpecWithoutNode
+     /**
+      * Options for running axe-core.
+      *
+      * @see https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter
+      */
+-    options?: RunOptions;
++    options?: RunOptions
+     /**
+      * Configuration object for axe-core.
+      *
+      * @see https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#api-name-axeconfigure
+      */
+-    config?: Spec;
++    config?: Spec
+     /** Whether to disable accessibility tests. */
+-    disable?: boolean;
++    disable?: boolean
+     /** Defines how accessibility violations should be handled: 'off', 'todo', or 'error'. */
+-    test?: A11yTest;
++    test?: A11yTest
+ }
+ 
+ interface A11yParameters {
+@@ -43,9 +43,9 @@ interface A11yParameters {
+      *
+      * @see https://storybook.js.org/docs/writing-tests/accessibility-testing
+      */
+-    a11y?: A11yParameters$1;
++    a11y?: A11yParameters$1
+ }
+-interface A11yGlobals {
++export interface A11yGlobals {
+     /**
+      * Accessibility configuration
+      *
+@@ -58,16 +58,17 @@ interface A11yGlobals {
+          *
+          * @see https://storybook.js.org/docs/writing-tests/accessibility-testing#turn-off-automated-a11y-tests
+          */
+-        manual?: boolean;
+-    };
++        manual?: boolean
++    }
+ }
+ interface A11yTypes {
+-    parameters: A11yParameters;
+-    globals: A11yGlobals;
++    parameters: A11yParameters
++    globals: A11yGlobals
+ }
+ 
+-declare const PARAM_KEY = "a11y";
++declare const PARAM_KEY = "a11y"
++
++declare const _default: () => storybook_internal_csf.PreviewAddon<A11yTypes>
+ 
+-declare const _default: () => storybook_internal_csf.PreviewAddon<A11yTypes>;
++export { _default as default, PARAM_KEY, type A11yParameters$1 as A11yParameters, type A11yTypes, type ContextObjectWithoutNode, type ContextSpecWithoutNode, type SelectorWithoutNode }
+ 
+-export { type A11yParameters$1 as A11yParameters, type A11yTypes, type ContextObjectWithoutNode, type ContextSpecWithoutNode, PARAM_KEY, type SelectorWithoutNode, _default as default };
